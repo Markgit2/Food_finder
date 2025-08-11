@@ -1,4 +1,6 @@
+11 Aug 2025:
 Purpose of this code is to help me find places to eat.
 
 This code takes 2 parameters: Food and Location. It will then pull the data off Google Places API to return some search results for restaurants / cafes that serve this partifular food item. 
 
+To build: Create an option that recommends top 5 places with the particular food item inside for days when users are free and easy or want to try something new / random 
