@@ -1,0 +1,25 @@
+import requests
+import urllib.parse
+
+# Configure API and set up key parameters
+# Remember to fill in your GOOGLE API Key
+API_KEY = "YOUR_GOOGLE_API"
+food = input("Enter Food: ")
+location = input("Enter Location: ")
+search_query = f"{food} {location}"
+search_query_encoded = urllib.parse.quote(search_query)
+
+# Search function 
+url = f"https://maps.googleapis.com/maps/api/place/textsearch/json?query={search_query_encoded}&key={API_KEY}"
+response = requests.get(url)
+data = response.json()
+
+if data.get("results"):
+    for place in data["results"]:
+        name = place.get("name")
+        address = place.get("formatted_address")
+        rating = place.get("rating")
+        print(f"{name} ({rating}⭐) - {address}")
+else:
+    print("No results found.")
+
